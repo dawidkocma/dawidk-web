@@ -12,9 +12,18 @@ from werkzeug.security import generate_password_hash, check_password_hash
 from forms import CreatePostForm, RegisterForm, LoginForm, CommentForm
 
 app = Flask(__name__)
-app.config['SECRET_KEY'] = os.environ.get('FLASK_KEY')
+# Get SECRET_KEY from Heroku environment variables
+app.config['SECRET_KEY'] = os.environ.get('FLASK_KEY', 'fallback-secret')
 ckeditor = CKEditor(app)
 Bootstrap5(app)
+
+# Use Heroku's DATABASE_URL
+DATABASE_URL = os.environ.get('DATABASE_URL')
+
+# Fix Heroku's database URL format (Heroku uses "postgres://" but SQLAlchemy needs "postgresql://")
+if DATABASE_URL.startswith("postgres://"):
+    DATABASE_URL = DATABASE_URL.replace("postgres://", "postgresql://", 1)
+
 
 # Configure Flask-Login
 login_manager = LoginManager()
@@ -24,7 +33,9 @@ login_manager.init_app(app)
 class Base(DeclarativeBase):
     pass
 
-app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get('DB_URI')
+app.config['SQLALCHEMY_DATABASE_URI'] = DATABASE_URL
+app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+
 db = SQLAlchemy(model_class=Base)
 db.init_app(app)
 
