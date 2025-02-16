@@ -1,0 +1,243 @@
+/* Fonts */
+:root {
+  --default-font: "Roboto",  system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  --heading-font: "Raleway",  sans-serif;
+  --nav-font: "Poppins",  sans-serif;
+}
+
+/* Global Colors - The following color variables are used throughout the website. Updating them here will change the color scheme of the entire website */
+:root {
+  --background-color: #ffffff; /* Background color for the entire website, including individual sections */
+  --default-color: #272829; /* Default color used for the majority of the text content across the entire website */
+  --heading-color: #050d18; /* Color for headings, subheadings and title throughout the website */
+  --accent-color: #149ddd; /* Accent color that represents your brand on the website. It's used for buttons, links, and other elements that need to stand out */
+  --surface-color: #ffffff; /* The surface color is used as a background of boxed elements within sections, such as cards, icon boxes, or other elements that require a visual separation from the global background. */
+  --contrast-color: #ffffff; /* Contrast color for text, ensuring readability against backgrounds of accent, heading, or default colors. */
+}
+
+/* Nav Menu Colors - The following color variables are used specifically for the navigation menu. They are separate from the global colors to allow for more customization options */
+:root {
+  --nav-color: #a8a9b4;  /* The default color of the main navmenu links */
+  --nav-hover-color: #ffffff; /* Applied to main navmenu links when they are hovered over or active */
+  --nav-mobile-background-color: #040b14; /* Used as the background color for mobile navigation menu */
+  --nav-dropdown-background-color: #040b14; /* Used as the background color for dropdown items that appear when hovering over primary navigation items */
+  --nav-dropdown-color: #a8a9b4; /* Used for navigation links of the dropdown items in the navigation menu. */
+  --nav-dropdown-hover-color: #ffffff; /* Similar to --nav-hover-color, this color is applied to dropdown navigation links when they are hovered over. */
+}
+
+/* Color Presets - These classes override global colors when applied to any section or element, providing reuse of the sam color scheme. */
+
+.light-background {
+  --background-color: #f4fafd;
+  --surface-color: #ffffff;
+}
+
+.dark-background {
+  --background-color: #040b14;
+  --default-color: #ffffff;
+  --heading-color: #ffffff;
+  --surface-color: #151f2b;
+  --contrast-color: #ffffff;
+}
+
+/* Smooth scroll */
+:root {
+  scroll-behavior: smooth;
+}
+
+
+/*--------------------------------------------------------------
+# Skills Section
+--------------------------------------------------------------*/
+.skills .progress {
+  height: 60px;
+  display: block;
+  background: none;
+  border-radius: 0;
+  margin: 5px;
+}
+
+.skills .progress .skill {
+  color: var(--heading-color);
+  padding: 0;
+  margin: 0 0 6px 0;
+  text-transform: uppercase;
+  display: block;
+  font-weight: 600;
+  font-family: var(--heading-font);
+}
+
+.skills .progress .skill .val {
+  float: right;
+  font-style: normal;
+}
+
+.skills .progress-bar-wrap {
+  background: color-mix(in srgb, var(--default-color), transparent 90%);
+  height: 10px;
+  border-radius: 5px;
+  overflow: hidden; /* Ensure the progress bar stays within bounds */
+}
+
+.skills .progress-bar {
+  width: 0; /* Start with 0 width to allow animation */
+  height: 10px;
+  transition: width 0.9s ease-in-out;
+  background-color: var(--accent-color);
+  border-radius: 5px; /* Add rounding to the progress bar ends */
+}
+
+/*--------------------------------------------------------------
+# Resume Section
+--------------------------------------------------------------*/
+.resume .resume-title {
+  color: var(--heading-color);
+  font-size: 26px;
+  font-weight: 700;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.resume .resume-item {
+  padding: 0 0 20px 20px;
+  margin-top: -2px;
+  border-left: 2px solid var(--accent-color);
+  position: relative;
+}
+
+.resume .resume-item h4 {
+  line-height: 18px;
+  font-size: 18px;
+  font-weight: 600;
+  text-transform: uppercase;
+  color: color-mix(in srgb, var(--default-color), transparent 20%);
+  margin-bottom: 10px;
+  display: inline-block; /* Make degree titles inline to keep them on the same line with dates */
+  margin-right: 15px; /* Adjust space between degree title and dates */
+  vertical-align: top; /* Aligns the degree title with the top of the date */
+}
+
+.resume .resume-item h5 {
+  font-size: 16px;
+  padding: 0; /* Remove padding to reduce space */
+  margin: 0; /* Remove margin to bring it closer to the degree title */
+  font-weight: 600;
+  display: inline-block; /* Keep dates inline with the degree title */
+  color: var(--accent-color); /* You can adjust the color if needed */
+}
+
+.resume .resume-item ul {
+  padding-left: 20px;
+}
+
+.resume .resume-item ul li {
+  padding-bottom: 10px;
+}
+
+.resume .resume-item:last-child {
+  padding-bottom: 0;
+}
+
+.resume .resume-item::before {
+  content: "";
+  position: absolute;
+  width: 16px;
+  height: 16px;
+  border-radius: 50px;
+  left: -9px;
+  top: 0;
+  background: var(--background-color);
+  border: 2px solid var(--accent-color);
+}
+
+.resume .resume-item p em {
+  display: inline-block; /* Make the university name inline */
+  margin-top: 0; /* Ensure no extra space above the university name */
+  margin-bottom: 10px; /* Adjust spacing below the university name */
+}
+
+
+/*--------------------------------------------------------------
+# About Cursor
+--------------------------------------------------------------*/
+
+/*.typed-cursor {*/
+/*  font-size: 24px;*/
+/*  color: var(--accent-color);*/
+/*}*/
+
+/*.typed-cursor--blink {*/
+/*  animation: blink 0.7s infinite step-start;*/
+/*}*/
+
+/*@keyframes blink {*/
+/*  50% {*/
+/*    opacity: 0;*/
+/*  }*/
+/*}*/
+.skill {
+  margin-bottom: 15px;
+}
+
+.badge-primary {
+  background-color: #007bff;
+  color: white;
+  margin-right: 5px;
+}
+
+.badge-secondary {
+  background-color: #6c757d;
+  color: white;
+  margin-left: 5px;
+}
+
+
+
+blockquote {
+    font-style: italic;
+    margin: 20px 40px;
+    padding: 10px 20px;
+}
+
+blockquote footer {
+    margin-top: 10px;
+    font-size: 0.9em;
+    color: #555;
+    text-align: right; /* Aligns the footer text to the right */
+}
+
+blockquote footer cite {
+    font-style: normal;
+    color: #007bff;
+}
+
+.badge {
+  font-size: 1.2em;
+  margin: 0.2em;
+}
+
+.subheading {
+  display: inline-block;
+}
+
+.typed {
+  display: inline-block;
+  white-space: nowrap;
+}
+
+.typed-cursor {
+  display: inline-block;
+  font-size: inherit;
+  color: inherit;
+  margin-left: 2px; /* Adjust as needed */
+}
+
+.typed-cursor--blink {
+  animation: blink 0.7s infinite step-start;
+}
+
+@keyframes blink {
+  50% {
+    opacity: 0;
+  }
+}
