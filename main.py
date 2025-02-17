@@ -15,6 +15,7 @@ app = Flask(__name__)
 # Get SECRET_KEY from Heroku environment variables
 app.config['SECRET_KEY'] = os.environ.get('FLASK_KEY', 'fallback-secret')
 ckeditor = CKEditor(app)
+app.config['CKEDITOR_CDN'] = "https://cdn.ckeditor.com/4.25.0/standard/ckeditor.js"
 Bootstrap5(app)
 
 # Use Heroku's DATABASE_URL
